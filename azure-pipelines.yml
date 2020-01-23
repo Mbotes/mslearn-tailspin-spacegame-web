@@ -14,7 +14,7 @@ pool:
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-  dotnetSdkVersion: '3.1.100'
+  dotnetSdkVersion: '2.1.803'
 
 steps:
 - task: UseDotNet@2
@@ -58,6 +58,7 @@ steps:
     publishWebProjects: false
     arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
     zipAfterPublish: true
+    modifyOutputPath: true
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
